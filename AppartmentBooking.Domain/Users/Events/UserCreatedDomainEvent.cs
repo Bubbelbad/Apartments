@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Apartments.Domain.Abstractions;
 
 namespace Apartments.Domain.Users.Events
 {
-    internal class UserCreatedDomainEvent
-    {
-    }
+    public sealed record UserCreatedDomainEvent(Guid UserId) : IDomainEvent;
 }

@@ -1,4 +1,5 @@
 ﻿using Apartments.Domain.Abstractions;
+using Apartments.Domain.Users.Events;
 
 namespace Apartments.Domain.Users
 {
@@ -19,6 +20,9 @@ namespace Apartments.Domain.Users
         public static User Create(FirstName firstName, LastName lastName, Email email)
         {
             var user = new User(Guid.NewGuid(), firstName, lastName, email);
+
+            user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
+
             return user;
         }
     }
